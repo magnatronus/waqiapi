@@ -8,13 +8,12 @@ import 'package:http/http.dart' as http;
 class GpsCoord {
   final double lat;
   final double long;
-  GpsCoord({@required this.lat,@required this.long});
+  GpsCoord({@required this.lat, @required this.long});
 }
 
-/// API to access the WAQI API -  A valid [token] is required to use the API. 
-/// See https://aqicn.org/api/ and https://aqicn.org/json-api/doc/ for more details 
+/// API to access the WAQI API -  A valid [token] is required to use the API.
+/// See https://aqicn.org/api/ and https://aqicn.org/json-api/doc/ for more details
 class Api {
-
   final String token;
   final String _endpoint = "https://api.waqi.info";
 
@@ -23,10 +22,11 @@ class Api {
   /// Internal call to query our API
   _callAPI(String url) async {
     var result = await http.get(Uri.encodeFull(url));
-    if(result.statusCode == 200){
-        return jsonDecode(result.body);
+    if (result.statusCode == 200) {
+      return jsonDecode(result.body);
     } else {
-     throw Exception("WAQIAPI API Error calling $url. Status code: ${result.statusCode}");
+      throw Exception(
+          "WAQIAPI API Error calling $url. Status code: ${result.statusCode}");
     }
   }
 
@@ -49,9 +49,10 @@ class Api {
   }
 
   /// Get all the stations within a given lat/lng bounds defined by [coords1]  and [coords2]
-  mapQuery( GpsCoord coords1, GpsCoord coords2) async {
-    String apiUrl = "$_endpoint/map/bounds/?latlng=${coords1.lat},${coords1.long},${coords2.lat},${coords2.long}&token=$token";
-    return _callAPI(apiUrl);    
+  mapQuery(GpsCoord coords1, GpsCoord coords2) async {
+    String apiUrl =
+        "$_endpoint/map/bounds/?latlng=${coords1.lat},${coords1.long},${coords2.lat},${coords2.long}&token=$token";
+    return _callAPI(apiUrl);
   }
 
   /// search stations by [name]
@@ -59,5 +60,4 @@ class Api {
     String apiUrl = "$_endpoint/search/?keyword=$name&token=$token";
     return _callAPI(apiUrl);
   }
-
 }

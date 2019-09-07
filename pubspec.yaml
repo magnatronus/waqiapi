@@ -1,6 +1,6 @@
 name: waqiapi
-description: A Flutter API to access the World Air Quality Index API.
-version: 0.1.0
+description: A Flutter package that enables you to access the World Air Quality Index API to get data on air quality around the world.
+version: 0.1.1
 author: Steve Rogers <srogers.uk@gmail.com>
 homepage: https://github.com/magnatronus/waqiapi.git
 
