@@ -1,0 +1,26 @@
+name: waqiapi
+description: A Flutter API to access the World Air Quality Index API.
+version: 0.1.0
+author: Steve Rogers <srogers.uk@gmail.com>
+homepage: https://github.com/magnatronus/waqiapi.git
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.12.0+2
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+ 
